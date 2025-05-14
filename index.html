@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Srishtu!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1, #fad0c4, #ff9a9e);
+      background-size: 1200% 1200%;
+      animation: animatedGradient 30s ease infinite;
+      position: relative;
+      transition: background 2s ease;
+    }
+    @keyframes animatedGradient {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 6rem;
+      color: #ffffff;
+      text-shadow: 0 0 15px #ff4d6d, 0 0 30px #ff6b81, 0 0 50px #ff9a9e;
+      animation: neonGlow 3s ease-in-out infinite alternate;
+      margin-bottom: 40px;
+      text-align: center;
+      z-index: 3;
+    }
+    @keyframes neonGlow {
+      from {text-shadow: 0 0 10px #ff4d6d, 0 0 20px #ff6b81;}
+      to {text-shadow: 0 0 25px #ff9a9e, 0 0 50px #ff6b81;}
+    }
+    button {
+      padding: 20px 50px;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(255, 77, 109, 0.8);
+      z-index: 3;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #ff4b2b, #ff416c);
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(255, 77, 109, 1);
+    }
+    .question-box, .letter-box, .final-letter {
+      display: none;
+      text-align: center;
+      animation: fadeIn 1.5s ease forwards;
+      z-index: 3;
+    }
+    .options {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .options button {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 77, 109, 0.5);
+      font-size: 1.6rem;
+      color: white;
+    }
+    .slider-container {
+      margin-top: 30px;
+    }
+    input[type="range"] {
+      width: 320px;
+      height: 12px;
+      appearance: none;
+      background: linear-gradient(90deg, #ff4d6d, #ff8a00, #ffd500);
+      border-radius: 10px;
+      outline: none;
+      transition: background 0.3s;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fff;
+      border: 4px solid #ff4d6d;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+    }
+    .reaction {
+      font-size: 3.5rem;
+      margin-top: 15px;
+    }
+    .final-letter {
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      padding: 40px;
+      border-radius: 25px;
+      width: 90%;
+      max-width: 800px;
+      height: 450px;
+      overflow-y: auto;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      text-align: left;
+      font-family: 'Great Vibes', cursive;
+      box-sizing: border-box;
+    }
+    .final-letter h2 {
+      color: #ff416c;
+      font-size: 3rem;
+      margin-bottom: 25px;
+    }
+    .final-letter p {
+      font-size: 1.5rem;
+      line-height: 1.8;
+      font-family: 'Poppins', sans-serif;
+    }
+    .signature {
+      margin-top: 30px;
+      font-size: 1.8rem;
+      color: #ff416c;
+      font-weight: 700;
+      font-family: 'Great Vibes', cursive;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: white;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+      z-index: 1;
+    }
+    @keyframes explode {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(10); opacity: 0; }
+    }
+    /* Floating Hearts and Balloons */
+    .float {
+      position: absolute;
+      animation: float 20s linear infinite;
+      opacity: 0.9;
+      z-index: 1;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); }
+      100% { transform: translateY(-120vh) translateX(50px); }
+    }
+    .heart, .balloon {
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .heart {
+      width: 50px;
+      height: 50px;
+      background-image: url('https://img.icons8.com/color/48/like--v1.png');
+    }
+    .balloon {
+      width: 55px;
+      height: 75px;
+      background-image: url('https://img.icons8.com/emoji/48/red-balloon.png');
+    }
+    .letter-box {
+      background: linear-gradient(145deg, #ff4d6d, #ff416c);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      font-family: 'Great Vibes', cursive;
+    }
+    .letter-box button {
+      padding: 20px 50px;
+      background: #ff416c;
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-size: 2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 20px rgba(255, 77, 109, 0.8);
+    }
+    .letter-box button:hover {
+      background: #ff4d6d;
+      transform: scale(1.1);
+      box-shadow: 0 12px 30px rgba(255, 77, 109, 1);
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 id="birthdayText">Happy Birthday My Love!</h1>
+<button id="startBtn">Start Celebration</button>
+
+<div class="question-box" id="questionBox">
+  <h2 id="questionText"></h2>
+  <div class="options" id="optionsBox"></div>
+  <div class="slider-container" id="sliderContainer">
+    <input type="range" min="0" max="100" value="50" id="loveSlider">
+    <div class="reaction" id="reactionEmoji">🙂</div>
+  </div>
+</div>
+
+<div class="letter-box" id="letterBox">
+  <button id="openLetterBtn">Open the Love Letter</button>
+</div>
+
+<div class="final-letter" id="finalLetter">
+  <h2>My Dearest Srishtu,</h2>
+  <p>
+    Today is your day, and I can’t even put into words how blessed I feel to celebrate it with you.
+    Every moment with you feels like magic—like I’m living in a dream I never want to wake up from.
+    You’ve made me believe in things I never thought were real… like true love, soulmates, and forever.
+    <br><br>
+    I love the way your eyes sparkle when you laugh. I love the way your voice feels like home.
+    I love the way you make even the simplest days feel like an adventure.
+    <br><br>
+    There are a thousand things I could say, but the truth is simple:
+    <strong>I am so deeply, madly, endlessly in love with you.</strong>
+    <br><br>
+    I want to be the reason you smile every day. I want to hold your hand through every high and every low.
+    I want to grow old with you, laugh with you, cry with you, and build a beautiful life with you.
+    <br><br>
+    Thank you for choosing me, for loving me, for being you.
+    <br><br>
+    <strong>You are my forever.</strong>
+    <br><br>
+    With all my heart, <br>
+    <div class="signature">Your Booba Lover 🤫</div>
+  </p>
+</div>
+
+<script>
+const startBtn = document.getElementById('startBtn');
+const birthdayText = document.getElementById('birthdayText');
+const questionBox = document.getElementById('questionBox');
+const questionText = document.getElementById('questionText');
+const optionsBox = document.getElementById('optionsBox');
+const sliderContainer = document.getElementById('sliderContainer');
+const loveSlider = document.getElementById('loveSlider');
+const reactionEmoji = document.getElementById('reactionEmoji');
+const letterBox = document.getElementById('letterBox');
+const openLetterBtn = document.getElementById('openLetterBtn');
+const finalLetter = document.getElementById('finalLetter');
+
+let currentQuestion = 0;
+
+const questions = [
+  {
+    text: "Will you be my forever?",
+    options: ["Forever and Always", "Without a doubt", "Till infinity"]
+  },
+  {
+    text: "How much do you love me?",
+    slider: true
+  },
+  {
+    text: "What's your favorite thing about me?",
+    options: ["Smile", "Eyes", "Heart", "Everything"]
+  },
+  {
+    text: "If I could give you a surprise now, what would you pick?",
+    options: ["Hug", "Kiss", "Cuddle", "Endless Love"]
+  },
+  {
+    text: "Ready for a magical surprise?",
+    options: ["YESSS"]
+  }
+];
+
+startBtn.addEventListener('click', () => {
+  birthdayText.style.display = 'none';
+  startBtn.style.display = 'none';
+  questionBox.style.display = 'block';
+  showQuestion();
+  startFloating();
+});
+
+function showQuestion() {
+  let q = questions[currentQuestion];
+  questionText.textContent = q.text;
+  optionsBox.innerHTML = '';
+  sliderContainer.style.display = 'none';
+
+  if (q.options) {
+    q.options.forEach(opt => {
+      let btn = document.createElement('button');
+      btn.textContent = opt;
+      btn.onclick = nextQuestion;
+      optionsBox.appendChild(btn);
+    });
+  } else if (q.slider) {
+    sliderContainer.style.display = 'block';
+    loveSlider.value = 50;
+    reactionEmoji.textContent = '🙂';
+    loveSlider.oninput = () => {
+      let val = loveSlider.value;
+      if (val <= 30) reactionEmoji.textContent = '😢';
+      else if (val <= 70) reactionEmoji.textContent = '🙂';
+      else if (val <= 99) reactionEmoji.textContent = '☺️';
+      else reactionEmoji.textContent = '❤️';
+    };
+    let nextBtn = document.createElement('button');
+    nextBtn.textContent = "Next";
+    nextBtn.onclick = nextQuestion;
+    optionsBox.appendChild(nextBtn);
+  }
+}
+
+function nextQuestion() {
+  currentQuestion++;
+  if (currentQuestion < questions.length) {
+    showQuestion();
+  } else {
+    questionBox.style.display = 'none';
+    letterBox.style.display = 'block';
+  }
+}
+
+openLetterBtn.addEventListener('click', () => {
+  letterBox.style.display = 'none';
+  finalLetter.style.display = 'block';
+});
+
+// Fireworks
+setInterval(() => {
+  const firework = document.createElement('div');
+  firework.className = 'firework';
+  firework.style.top = `${Math.random() * 100}vh`;
+  firework.style.left = `${Math.random() * 100}vw`;
+  document.body.appendChild(firework);
+  setTimeout(() => firework.remove(), 1000);
+}, 300);
+
+// Floating Hearts and Balloons
+function startFloating() {
+  setInterval(() => {
+    const floatElement = document.createElement('div');
+    const type = Math.random() > 0.5 ? 'heart' : 'balloon';
+    floatElement.className = `float ${type}`;
+    floatElement.style.left = `${Math.random() * 100}vw`;
+    floatElement.style.animationDuration = `${Math.random() * 8 + 12}s`;
+    document.body.appendChild(floatElement);
+    setTimeout(() => floatElement.remove(), 22000);
+  }, 1200);
+}
+</script>
+
+</body>
+</html>
